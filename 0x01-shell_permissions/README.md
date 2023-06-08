@@ -1,2 +1,2 @@
-**A repo for 0x01. Shell, Permissions**
+**A repo for 0x01. Shell, permissions**
 
