@@ -1,1 +1,1 @@
-**A repo for 0x00. Shell, basics**
+**A directory for 0x00. Shell, basics**
