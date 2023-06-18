@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type d -empty -print -o -type f -empty -print
+find -empty | rev | cut -d '/' -f1 | rev
