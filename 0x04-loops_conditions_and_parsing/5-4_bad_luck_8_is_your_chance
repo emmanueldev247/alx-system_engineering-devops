@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script that displays Best School 10 times using while loop
+# Write a Bash script that loops from 1 to 10
 
 count=1
 while [ $count  -le 10 ]
