@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script displays the content of the current directory in a list format
+# Bash script that displays the content of the current directory in a list format
 
 for file in *
 do
