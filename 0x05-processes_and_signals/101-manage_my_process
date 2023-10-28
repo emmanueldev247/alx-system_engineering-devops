@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Bash script that manages manage_my_process
+
+pid_file="/var/run/my_process.pid"
+
+terminate(){
+	rm "$pid_file"
+}
+
+create_pid_file(){
+	echo "$$" > "$pid_file"
+}
+
+usage_error(){
+	echo "Usage: manage_my_process {start|stop|restart}"
+}
+
+if [ $# -ne 2 ]; then
+	usage_error
+fi

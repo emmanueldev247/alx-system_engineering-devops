@@ -13,6 +13,6 @@ terminate(){
 
 while true
 do
-	echo "I am alive!" > "$tmp_file"
+	echo "I am alive!" >> "$tmp_file"
 	sleep 2
 done
