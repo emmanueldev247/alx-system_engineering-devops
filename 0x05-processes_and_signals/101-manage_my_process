@@ -15,6 +15,6 @@ usage_error(){
 	echo "Usage: manage_my_process {start|stop|restart}"
 }
 
-if [ $# -ne 2 ]; then
+if [ $# -ne 1 ]; then
 	usage_error
 fi
