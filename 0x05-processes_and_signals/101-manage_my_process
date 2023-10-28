@@ -17,4 +17,6 @@ usage_error(){
 
 if [ $# -ne 1 ]; then
 	usage_error
+elif [ "$1" != "start" ] && [ "$1" != "stop" ]; then
+	usage_error
 fi
