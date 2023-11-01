@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Time to sort the data in the log file so you can get a better idea of what is going on
+# To group visitors by IP and HTTP status code and display this data
+
+awk '{print $1, $9}' apache-access.log | sort | uniq -c
