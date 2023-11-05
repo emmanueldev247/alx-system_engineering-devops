@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Bash script listens on port 98 on localhost
 
-netcat localhost 98
+nc localhost 98
