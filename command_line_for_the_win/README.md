@@ -23,4 +23,4 @@ sftp <username>@<hostname>
 * I navigated to the directory on the sandbox environment where I want to upload the screenshots -> `/root/alx-system_engineering-devops/command_line_for_the_win/`
 * I used the SFTP `put` command to upload the screenshots from my local machine to the sandbox environment
 * I confirmed that the screenshots have been successfully transferred by checking the sandbox directory using `ls`
-* I pushed to files to GitHub
+* I pushed the files to GitHub
