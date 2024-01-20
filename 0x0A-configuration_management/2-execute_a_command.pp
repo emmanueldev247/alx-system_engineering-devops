@@ -1,4 +1,4 @@
 # Using Puppet to kill a process named killmenow
-exec {'kill process':
-  refreshonly => true,
+exec { 'pkill -f killmenow':
+path => '/usr/bin/: /usr/local/bin/:/bin/'
 }
