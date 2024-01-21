@@ -1,19 +1,20 @@
 # Using Puppet to set client authentication method
-class ssh_config {
-  $ssh_config_path = '/etc/ssh/ssh_config'
-  $identity_file = '~/.ssh/school'
+file { '/etc/ssh/ssh_config':
+  ensure => present,
+}
 
-  augeas { 'Turn off password authentication':
-    context => "/files${ssh_config_path}",
-    changes => [
-      'set PasswordAuthentication no',
-    ],
-  }
+# Ensure IdentityFile line is present and has the correct value
+file_line { 'identity_file':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'IdentityFile ~/.ssh/school',
+  match   => '^#?IdentityFile\s+.*$',
+  ensure  => present,
+}
 
-  augeas { 'Declare identity file':
-    context => "/files${ssh_config_path}",
-    changes => [
-      "set IdentityFile ${identity_file}",
-    ],
-  }
+# Ensure PasswordAuthentication line is present and has the correct value
+file_line { 'password_authentication':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'PasswordAuthentication no',
+  match   => '^#?PasswordAuthentication\s+.*$',
+  ensure  => present,
 }
