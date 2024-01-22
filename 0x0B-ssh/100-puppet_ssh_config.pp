@@ -7,7 +7,7 @@ file { '/etc/ssh/ssh_config':
 file_line { 'identity_file':
   path    => '/etc/ssh/ssh_config',
   line    => 'IdentityFile ~/.ssh/school',
-  match   => '^#?\s*IdentityFile',
+  match   => '^IdentityFile',
   replace => true
 }
 
@@ -15,6 +15,6 @@ file_line { 'identity_file':
 file_line { 'password_authentication':
   path    => '/etc/ssh/ssh_config',
   line    => 'PasswordAuthentication no',
-  match   => '^#?\s*PasswordAuthentication',
+  match   => '^PasswordAuthentication',
   replace => true
 }
