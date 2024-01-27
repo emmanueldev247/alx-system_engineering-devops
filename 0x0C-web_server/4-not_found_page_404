@@ -6,7 +6,7 @@ apt-get update -y
 apt-get install nginx -y
 ufw allow 80
 sh -c 'echo "Hello World!" > /var/www/html/index.html'
-sh -c 'echo -e "Ceci n'\''est pas une page" > /var/www/html/404.html'
+sh -c 'echo -c "Ceci n'\''est pas une page" > /var/www/html/404.html'
 
 sed -i '/server_name _;/a \
         error_page 404 /404.html;\n\
