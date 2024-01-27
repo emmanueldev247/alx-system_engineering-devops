@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Bash script that transfers a file from our client to a server
+
+if [ $# -lt 1 ]; then
+    echo "Usage: psrvr PATH_TO_FILE"
+    exit 1
+fi
+
+file_path=$1
+server_ip="xx.xx.xx.xx"
+username="ubuntu"
+ssh_key="~/.ssh/school"
+
+scp -o StrictHostKeyChecking=no -i "$ssh_key" "$file_path" "$username"@"$server_ip":~/

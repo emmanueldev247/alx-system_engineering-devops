@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Color codes for formatting
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No color
+
+# Attempt to add README.md
+git add README.md
+
+# Check the exit code of git add
+if [ $? -ne 0 ]; then
+    echo -e "${RED}Error:${NC} Failed to add changes to the staging area."
+    exit 1
+fi
+
+git commit -m "added: Project Description"
+git push
+
+echo -e "\n\n${GREEN}DONE${NC}......................... ${GREEN}100%${NC}\n\n"
