@@ -6,9 +6,12 @@ apt-get update -y
 apt-get install nginx -y
 ufw allow 80
 sh -c 'echo "Hello World!" > /var/www/html/index.html'
-echo -e "Ceci n'est pas une page" | sudo tee /var/www/html/my_404.html
-sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
-sed -i '/listen 80 default_server/a error_page 404 /404.html;\nlocation = /404.html {\n
-    root /var/www/html/my_404.html;\n    internal;\n}' /etc/nginx/sites-available/default
+sh -c 'echo -e "Ceci n'\''est pas une page" > /var/www/html/404.html'
+
+sed -i '/server_name _;/a \
+        error_page 404 /404.html;\n\
+        location = /404.html {\n\
+            internal;\n\
+        }' /etc/nginx/sites-available/default
 
 service nginx restart
