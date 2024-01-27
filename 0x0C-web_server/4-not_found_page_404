@@ -6,12 +6,12 @@ apt-get update -y
 apt-get install nginx -y
 ufw allow 80
 sh -c 'echo "Hello World!" > /var/www/html/index.html'
-sh -c 'echo -c "Ceci n'\''est pas une page" > /var/www/html/404.html'
+sh -c 'echo "Ceci n'\''est pas une page" > /var/www/html/404.html'
 
-sed -i '/server_name _;/a \
+sed -i '/server_name _;/a \\n\
         error_page 404 /404.html;\n\
-        location = /404.html {\n\
-            internal;\n\
+        location = /404.html {\
+            internal;\
         }' /etc/nginx/sites-available/default
 
 service nginx restart
