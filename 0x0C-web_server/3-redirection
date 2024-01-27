@@ -2,5 +2,9 @@
 # Bash script that configures a Ubuntu machine
 # so that /redirect_me is redirecting to another page
 
-sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
+apt-get update -y
+apt-get install nginx -y
+ufw allow 80
+sh -c 'echo "Hello World!" > /var/www/html/index.html'
+sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
 service nginx restart
