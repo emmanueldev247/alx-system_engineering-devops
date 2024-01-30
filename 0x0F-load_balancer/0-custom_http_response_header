@@ -2,7 +2,7 @@
 # Bash script that Configures Nginx so that its HTTP response contains a custom header
 
 sed -i '/server_name _;/a \\n\
-        add_header X-Served-By $(hostname);\n\'
-        /etc/nginx/sites-enabled/default
+    set $my_host $hostname;\
+    add_header X-Served-By $my_host;' /etc/nginx/sites-enabled/default
 
 service nginx restart
