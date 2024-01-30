@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Bash script that fi a server and get Apache to run on the container and
+# to return a page containing - Hello Holberton - when querying the root of it
+
+apt-get update
+apt-get install ufw -y
+ufw allow 80
+sh -c 'echo "Hello Holberton" > /var/www/html/index.html'
+service apache2 restart
