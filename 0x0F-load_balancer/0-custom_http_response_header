@@ -3,6 +3,6 @@
 
 sed -i '/server_name _;/a \\n\
         add_header X-Served-By $(hostname);\n\'
-        /etc/nginx/sites-available/default
+        /etc/nginx/sites-enabled/default
 
 service nginx restart
