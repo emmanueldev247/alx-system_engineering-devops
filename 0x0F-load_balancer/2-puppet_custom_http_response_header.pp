@@ -17,24 +17,15 @@ package { 'nginx':
 }
 
 # add custom header
-file { 'Nginx default config file':
-  ensure  => file,
-  path    => '/etc/nginx/sites-enabled/default',
-  content =>
-"
-set $my_host $hostname;
-add_header X-Served-By $my_host;
-",
+file_line { 'add custom header':
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "\n\tset $my_host $hostname;\n\tadd_header X-Served-By $my_host;"
+  after  => 'server_name _;',
 }
 
 # restart nginx
 exec { 'restart service':
   command => 'service nginx restart',
   path    => '/usr/bin:/usr/sbin:/bin',
-}
-
-# start service nginx
-service { 'nginx':
-  ensure  => running,
-  require => Package['nginx'],
 }
