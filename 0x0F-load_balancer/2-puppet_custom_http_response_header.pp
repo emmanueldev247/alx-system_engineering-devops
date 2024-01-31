@@ -12,23 +12,12 @@ package { 'nginx':
   ensure => installed,
 }
 
-# Create a basic HTML file
-file { '/var/www/html/index.html':
-  content => 'Hello World!',
-}
-
 # Configure Nginx to add the custom HTTP header
 file_line { 'add custom header':
   ensure => present,
   path   => '/etc/nginx/sites-available/default',
   line   => "\tadd_header X-Served-By ${hostname};",
   after  => 'server_name _;',
-}
-
-# restart nginx
-exec { 'restart service':
-  command => 'service nginx restart',
-  path    => '/usr/bin:/usr/sbin:/bin',
 }
 
 # Ensure Nginx is running
