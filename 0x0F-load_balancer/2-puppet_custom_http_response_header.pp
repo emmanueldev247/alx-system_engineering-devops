@@ -4,9 +4,6 @@ exec { 'apt-update':
   path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 
-exec { 'update packages':
-  command => 'apt-get update',
-}
 
 package { 'nginx':
   ensure => installed,
