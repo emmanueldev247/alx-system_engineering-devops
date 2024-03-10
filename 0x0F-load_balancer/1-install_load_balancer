@@ -26,7 +26,7 @@ backend webservers
 "
 # Add your HAProxy configuration to haproxy.cfg
 sudo cp -a /etc/haproxy/haproxy.cfg{,.orig}
-sudo echo "$balancer" >> /etc/haproxy/haproxy.cfg
+echo "$balancer" | sudo tee -a /etc/haproxy/haproxy.cfg >/dev/null
 
 # Start the HAProxy service
 sudo service haproxy start
