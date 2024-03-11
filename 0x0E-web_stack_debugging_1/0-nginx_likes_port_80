@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# script to fix what’s keeping Ubuntu container’s Nginx installation from listening on port 80
+
+apt-get update -y
+apt-get install nginx -y
+ufw allow 80
+service nginx restart
