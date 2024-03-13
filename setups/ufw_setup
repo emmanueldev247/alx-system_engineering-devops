@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script that configures ufw
+
+sudo ufw allow 80
+sudo ufw allow 22
+sudo ufw enable
+sudo ufw reload
+sudo ufw status
