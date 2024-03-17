@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Function to query DNS records for a domain and subdomain
+query_dns() {
+    domain="$1"
+    subdomain="$2"
+
+    # Query DNS records
+    dns_output=$(dig +short "$subdomain.$domain")
+
+    # Check if DNS query returned any records
+    if [ -n "$dns_output" ]; then
+    	dns_output=$(dig "$subdomain.$domain")
+		record_type=$(echo "$dns_output" | awk '/ANSWER SECTION/ {getline; print $4}')
+		destination=$(echo "$dns_output" | awk '/ANSWER SECTION/ {getline; print $5}')
+
+		formatted_output="The subdomain $2 is a $record_type record and points to $destination"
+
+        echo "$formatted_output"
+    fi
+}
+
+# Check if the number of arguments is correct
+if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 <domain> [subdomain]"
+    exit 1
+fi
+
+# Extract arguments
+domain="$1"
+subdomains=("www" "lb-01" "web-01" "web-02")
+
+if [ -n "$2" ]; then
+    subdomains=("$2")
+fi
+
+# Loop through each subdomain and query DNS records
+for subdomain in "${subdomains[@]}"; do
+    query_dns "$domain" "$subdomain"
+done
+
