@@ -7,6 +7,7 @@ global
 	user haproxy
 	group haproxy
 	daemon
+	tune.ssl.default-dh-param 2048
 
 	# Default SSL material locations
 	ca-base /etc/ssl/certs
@@ -36,12 +37,11 @@ defaults
 frontend haproxy_balancer
 	bind *:80
 	bind *:443 ssl crt /etc/letsencrypt/live/www.emmanueldev247.tech/fullchain-key.pem
-	http-request redirect scheme https if !{ ssl_fc }
+	redirect scheme https code 301 if !{ ssl_fc }
     mode http
     default_backend webservers
 
 backend webservers
-	redirect scheme https code 301 if !{ ssl_fc }
     balance roundrobin
     server 437712-web-01 54.90.15.146:80 check
     server 437712-web-02 3.84.239.74:80 check
