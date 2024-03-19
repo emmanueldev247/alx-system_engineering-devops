@@ -1,0 +1,9 @@
+#!/bin/bash
+# script to install ufw firewall and setup a few rules on
+apt update
+apt install ufw -y
+sudo ufw enable
+sudo ufw allow 22
+sudo ufw allow 443
+sudo ufw allow 80
+sudo service ufw restart
