@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
 # Script to Run Nginx as Nginx
+echo "user nginx;" | sudo tee -a /etc/nginx/nginx.conf > /dev/null
+sudo service nginx restart
