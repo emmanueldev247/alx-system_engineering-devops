@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo ufw allow from 3.84.239.74 to any port 3306
