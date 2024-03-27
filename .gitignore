@@ -1,2 +1,10 @@
 .*.sw?
 my_server_ip
+*.pyc
+__p*
+~*
+*.exe
+*.out
+.*
+*main.py
+*main.js
