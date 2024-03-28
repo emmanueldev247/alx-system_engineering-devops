@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """Script to export data in the CSV format"""
 
+import csv
 import requests
 import sys
-import csv
 
 
 def empAPI():
-    """Exports task data to a CSV file"""
+    """Fetches employee data from the API"""
     base_url = 'https://jsonplaceholder.typicode.com/'
     emp_id = sys.argv[1]
 
