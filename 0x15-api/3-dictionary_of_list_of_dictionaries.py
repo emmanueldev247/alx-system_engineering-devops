@@ -6,7 +6,6 @@ import requests
 import sys
 
 
-
 def usersAPI():
     """fetch all users data from the API"""
     base_url = 'https://jsonplaceholder.typicode.com/'
@@ -20,10 +19,10 @@ def usersAPI():
 
     data = {}
     for user in json_data:
-       id = user.get( "id")
-       tasks = empAPI(id)
+        id = user.get("id")
+        tasks = empAPI(id)
 
-       data[str(id)] = tasks
+        data[str(id)] = tasks
 
     exportJSON(data, id)
 
