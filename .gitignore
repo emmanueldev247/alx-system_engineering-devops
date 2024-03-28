@@ -9,3 +9,5 @@ __p*
 *main.py
 *main.js
 *.csv
+*.json
+test.py
