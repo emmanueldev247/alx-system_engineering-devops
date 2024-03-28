@@ -7,6 +7,7 @@ import sys
 
 
 def empApi():
+    """Fetches employee data from the API"""
     base_url = 'https://jsonplaceholder.typicode.com/'
     emp_id = sys.argv[1]
     response = requests.get(base_url+f'users/{emp_id}')
@@ -20,7 +21,7 @@ def empApi():
     emp_id = int(emp_id)
     emp_name = json_data.get("name")
 
-    response = requests.get(base_url+f'todos/')
+    response = requests.get(base_url+'todos/')
     if response.status_code == 200:
         json_data = response.json()
     else:
