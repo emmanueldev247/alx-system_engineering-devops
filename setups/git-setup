@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
 git config --global user.email "mailemmydee@gmail.com"
 git config --global user.name "Emmanuel Ademola"
-
+git config --global --list
+echo ""
+git config --list
