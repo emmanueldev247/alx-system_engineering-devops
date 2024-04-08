@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cp .bashrc .vimrc ~/
+source ~/.bashrc
+source ~/.vimrc
